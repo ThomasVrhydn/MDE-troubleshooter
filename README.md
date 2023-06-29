@@ -5,6 +5,8 @@ and give you access to the Performance Analyzer.
 
 This is the first version of the tool. Bugs, enhancements and reports can be submitted at my github.
 
+![image](https://github.com/ThomasVrhydn/MDE-troubleshooter/assets/80472867/a604e7e7-9fd1-4c98-8a41-505b6c537b96)
+
 # Prerequisites: 
 
 Script need to run as admin to view all settings.
