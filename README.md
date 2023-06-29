@@ -1,6 +1,6 @@
 # MDE-troubleshooter
 # INFO:
-This tool will help you with analysing issues with Defender for Endpoint locally on your endpoint. The script will centralize in one view the security configuration, logs files, update
+This tool will help you with analyzing issues with Defender for Endpoint locally on your endpoint. The script will centralize in one view the security configuration, logs files, update
 and give you access to the Performance Analyzer.
 
 This is the first version of the tool. Bugs, enhancements and reports can be submitted at my github.
@@ -9,7 +9,7 @@ This is the first version of the tool. Bugs, enhancements and reports can be sub
 
 Script need to run as admin to view all settings.
 
-#Disclaimer
+# Disclaimer
 
 Script provided as is. Use at own risk. No guarantees or warranty provided.
 
