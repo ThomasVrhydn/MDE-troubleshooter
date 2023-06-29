@@ -24,9 +24,9 @@ https://github.com/ugurkocde/Intune/blob/main/Defender%20for%20Endpoint/MDE%20-%
 
 https://github.com/directorcia/Office365/blob/master/win10-asr-get.ps1
 
-ASR Overview - https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/overview-attack-surface-reduction
+https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/overview-attack-surface-reduction
 
-Reduce attack surfaces with attack surface reduction rules - https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction
+https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction
 
-ASR FAQ - https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction-faq
+https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction-faq
 
