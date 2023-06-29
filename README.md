@@ -14,6 +14,10 @@ and give you access to the Performance Analyzer.
 
 This is the first version of the tool. Bugs, enhancements and reports can be submitted at my github.
 
+Prerequisites: 
+
+Script need to run as admin to view all settings.
+
 Contact:
 twitter:  @thomasvrhydn
 linkedin: https://www.linkedin.com/in/thomasvrhydn/
