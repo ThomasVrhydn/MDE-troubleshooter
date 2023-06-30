@@ -237,7 +237,7 @@ Function GetASRRuleStatus {
 
      
 
-        write-host -foregroundcolor $textcolor $results.AttackSurfaceReductionRules_ids.count, "of", $asrrules.count, "ASR rules found active`n"
+       
 
         if (-not [string]::isnullorempty($results.AttackSurfaceReductionRules_ids)) {
             foreach ($id in $asrrules.GUID) {      
@@ -383,7 +383,11 @@ $btnShowSenseLogs.Add_Click({
 
         try {
 
+            $MainWindow1.Cursor = [System.Windows.Input.Cursors]::Wait
+
             get-winevent -LogName "Microsoft-Windows-SENSE/Operational" | Out-GridView -Title "Sense Logs"
+
+            $MainWindow1.Cursor = [System.Windows.Input.Cursors]::Arrow
 
         }
         catch { [System.Windows.MessageBox]::Show($Error[0], 'Confirm', 'OK', 'Error') }
@@ -391,11 +395,14 @@ $btnShowSenseLogs.Add_Click({
     })
 
 $btnShowASR.Add_Click({
+        $MainWindow1.Cursor = [System.Windows.Input.Cursors]::Wait
 
         try {
 
             $GetASRRuleStatus = GetASRRuleStatus
             $GetASRRuleStatus | Out-GridView -title "ASR Rules status"
+
+            $MainWindow1.Cursor = [System.Windows.Input.Cursors]::Arrow
 
         }
         catch { [System.Windows.MessageBox]::Show($Error[0], 'Confirm', 'OK', 'Error') }
@@ -403,6 +410,7 @@ $btnShowASR.Add_Click({
     })
 
 $btnCheckForLastestUpdate.Add_Click({
+        $MainWindow1.Cursor = [System.Windows.Input.Cursors]::Wait
 
         try {
 
@@ -413,6 +421,8 @@ $btnCheckForLastestUpdate.Add_Click({
             $lblLastestEngineVersion_txt.Foreground = "#FF000000"
             $lblLastestPlatformVersion_txt.Foreground = "#FF000000"
 
+        $MainWindow1.Cursor = [System.Windows.Input.Cursors]::Arrow
+
         }
         catch { [System.Windows.MessageBox]::Show($Error[0], 'Confirm', 'OK', 'Error') }
 
@@ -420,10 +430,14 @@ $btnCheckForLastestUpdate.Add_Click({
     })
 
 $btnShowDefenderAVLogs.Add_Click({
+        $MainWindow1.Cursor = [System.Windows.Input.Cursors]::Wait
+        $MainWindow1.Cursor = [System.Windows.Input.Cursors]::Arrow
 
         try {
 
-            Get-WinEvent -LogName "Microsoft-Windows-Windows Defender/Operational" | Out-GridView
+            Get-WinEvent -LogName "Microsoft-Windows-Windows Defender/Operational" | Out-GridView -Title "Defender AV logs"
+
+        
 
         }
         catch { [System.Windows.MessageBox]::Show($Error[0], 'Confirm', 'OK', 'Error') }
@@ -432,12 +446,16 @@ $btnShowDefenderAVLogs.Add_Click({
 
 
 $btnShowPerformanceReport.Add_Click({
+        $MainWindow1.Cursor = [System.Windows.Input.Cursors]::Wait
 
         PerformanceReport
+
+        $MainWindow1.Cursor = [System.Windows.Input.Cursors]::Arrow
 
     })
 
 $btnExclusions.Add_Click({
+        $MainWindow1.Cursor = [System.Windows.Input.Cursors]::Wait
 
         try {
 
@@ -447,6 +465,8 @@ $btnExclusions.Add_Click({
             $Exclusions += $MPpreference.ExclusionIpAddress
             $Exclusions += $MPpreference.ExclusionProcess
             $Exclusions | Out-GridView -Title "Exclusions"
+
+        $MainWindow1.Cursor = [System.Windows.Input.Cursors]::Arrow
 
         }
         catch { [System.Windows.MessageBox]::Show($Error[0], 'Confirm', 'OK', 'Error') }
