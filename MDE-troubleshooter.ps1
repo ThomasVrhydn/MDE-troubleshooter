@@ -1,7 +1,7 @@
 # Author: Thomas Verheyden
 # Created: 28.06.2023
 # Version: 1.0
-# Blogpost: vertho.tech\MDETroubleshooter
+# Blogpost: https://vertho.tech/2023/06/30/tool-mde-troubleshooter-is-born/
 # Website: vertho.tech
 # Twitter: @thomasvrhydn
 # Disclaimer: Script provided as is. Use at own risk. No guarantees or warranty provided.
