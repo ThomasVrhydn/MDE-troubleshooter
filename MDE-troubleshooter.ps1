@@ -1,7 +1,6 @@
 # Author: Thomas Verheyden
 # Created: 28.06.2023
-# Update: 15/01/205
-# Version: 1.5
+# Version: 1.0
 # Blogpost: https://vertho.tech/2023/06/30/tool-mde-troubleshooter-is-born/
 # Website: vertho.tech
 # Twitter: @thomasvrhydn
@@ -23,6 +22,20 @@ https://github.com/directorcia/Office365/blob/master/win10-asr-get.ps1
 ASR Overview - https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/overview-attack-surface-reduction
 Reduce attack surfaces with attack surface reduction rules - https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction
 ASR FAQ - https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction-faq
+
+
+To make this work in powershell there are a few things we need to edit the the code.
+
+Find the row with x_Class= and delete it and everything that follows. You want to keep <Window. In my example this is row one.
+
+Delete the following rows.
+xmlns:d=”http://schemas.microsoft.com/expression/blend/2008″
+xmlns:mc=”http://schemas.openxmlformats.org/markup-compatibility/2006″
+xmlns:local=”clr-namespace:Get_ComputerInfo”
+mc:Ignorable=”d”
+
+Search and replace all instances of x: with nothing.'
+
 
 #>
 
@@ -130,6 +143,16 @@ ASR FAQ - https://docs.microsoft.com/en-us/windows/security/threat-protection/mi
             </Label.RenderTransform>
         </Label>
         <Button Name="btnShowASR" Content="Show ASR rules" HorizontalAlignment="Left" Margin="111,315,0,0" VerticalAlignment="Top" Width="175" FontWeight="Bold" Background="#FF707070" BorderBrush="#FF101010"/>
+        <Button Name="btnProtectionLogs" Content="Show Microsoft Protection Log" HorizontalAlignment="Left" Margin="521,272,0,0" VerticalAlignment="Top" Width="190" FontWeight="Bold" BorderBrush="#FF0E0D0D" Background="#FF707070" RenderTransformOrigin="0.5,0.5" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-2"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
         <Label Name="lblEnableFileHashComputation" Content="EnableFileHashComputation:" Margin="7,284,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120"/>
         <Label Name="lblEnableFileHashComputation_Text" Content="N/A" HorizontalAlignment="Left" Margin="160,283,0,0" VerticalAlignment="Top" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Width="120">
             <Label.RenderTransform>
@@ -142,9 +165,20 @@ ASR FAQ - https://docs.microsoft.com/en-us/windows/security/threat-protection/mi
             </Label.RenderTransform>
         </Label>
         <Button Name="btnUpdateIntel" Content="Update intel updates" HorizontalAlignment="Left" Margin="111,487,0,0" VerticalAlignment="Top" Width="175" FontWeight="Bold" Background="#FF707070" BorderBrush="#FF101010"/>
+        <Button Name="btnDownloadClientAnalyzer" Content="Download ClientAnalyzer" HorizontalAlignment="Left" Margin="521,305,0,0" VerticalAlignment="Top" Width="190" FontWeight="Bold" BorderBrush="#FF0E0D0D" Background="#FF707070" RenderTransformOrigin="0.5,0.5" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-2"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
 
     </Grid>
 </Window>
+
 
 
 
@@ -430,6 +464,35 @@ $MainWindow1.Add_Loaded({
     })
 
 #Assign event
+
+
+$btnDownloadClientAnalyzer.Add_Click({ 
+
+        try {
+
+           # Prompt the user to select a destination folder
+            $folder = (New-Object -ComObject Shell.Application).BrowseForFolder(0, "Select Destination Folder", 0).Self.Path
+
+            # Check if the user selected a folder
+            if ($folder) {
+                # Define the URL of the .exe file to download
+                $url = "https://aka.ms/mdatpanalyzer"
+
+                # Define the destination file path
+                $destination = Join-Path -Path $folder -ChildPath "yourfile.exe"
+
+                # Download the file
+                Invoke-WebRequest -Uri $url -OutFile $destination
+
+                Write-Host "File downloaded to $destination"
+            } else {
+                Write-Host "No folder selected. Download canceled."
+            }
+
+        }
+        catch { [System.Windows.MessageBox]::Show($Error[0], 'Confirm', 'OK', 'Error') }
+
+    })
 
 
 
