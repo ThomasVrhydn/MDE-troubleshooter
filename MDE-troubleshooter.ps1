@@ -1,6 +1,7 @@
 # Author: Thomas Verheyden
 # Created: 28.06.2023
-# Version: 1.0
+# Update: 15.01.2025
+# Version: 1.5
 # Blogpost: https://vertho.tech/2023/06/30/tool-mde-troubleshooter-is-born/
 # Website: vertho.tech
 # Twitter: @thomasvrhydn
@@ -23,18 +24,6 @@ ASR Overview - https://docs.microsoft.com/en-us/windows/security/threat-protecti
 Reduce attack surfaces with attack surface reduction rules - https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction
 ASR FAQ - https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction-faq
 
-
-To make this work in powershell there are a few things we need to edit the the code.
-
-Find the row with x_Class= and delete it and everything that follows. You want to keep <Window. In my example this is row one.
-
-Delete the following rows.
-xmlns:d=”http://schemas.microsoft.com/expression/blend/2008″
-xmlns:mc=”http://schemas.openxmlformats.org/markup-compatibility/2006″
-xmlns:local=”clr-namespace:Get_ComputerInfo”
-mc:Ignorable=”d”
-
-Search and replace all instances of x: with nothing.'
 
 
 #>
