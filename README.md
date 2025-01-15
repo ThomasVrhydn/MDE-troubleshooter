@@ -5,7 +5,8 @@ This tool is designed to assist you in analyzing issues related to Defender for 
 
 Please note that this is the initial version of the tool. If you encounter any bugs or have suggestions for enhancements, I encourage you to submit them on my GitHub page. Your feedback and reports are greatly appreciated.
 
-![image](https://github.com/ThomasVrhydn/MDE-troubleshooter/assets/80472867/a604e7e7-9fd1-4c98-8a41-505b6c537b96)
+![image](https://github.com/user-attachments/assets/9b05d7e2-1698-4e56-97e1-1507feee1ecb)
+
 
 # Prerequisites
 
