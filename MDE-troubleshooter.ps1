@@ -468,7 +468,7 @@ $btnDownloadClientAnalyzer.Add_Click({
                 $url = "https://aka.ms/mdatpanalyzer"
 
                 # Define the destination file path
-                $destination = Join-Path -Path $folder -ChildPath "yourfile.exe"
+                $destination = Join-Path -Path $folder -ChildPath "MDEClientAnalyzer.zip"
 
                 # Download the file
                 Invoke-WebRequest -Uri $url -OutFile $destination
