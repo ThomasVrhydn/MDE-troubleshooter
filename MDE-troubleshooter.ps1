@@ -1,7 +1,6 @@
 # Author: Thomas Verheyden
 # Created: 28.06.2023
-# Update: 15.01.2025
-# Version: 1.5
+# Version: 1.0
 # Blogpost: https://vertho.tech/2023/06/30/tool-mde-troubleshooter-is-born/
 # Website: vertho.tech
 # Twitter: @thomasvrhydn
@@ -25,7 +24,6 @@ Reduce attack surfaces with attack surface reduction rules - https://docs.micros
 ASR FAQ - https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction-faq
 
 
-
 #>
 
 
@@ -36,19 +34,19 @@ ASR FAQ - https://docs.microsoft.com/en-us/windows/security/threat-protection/mi
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp1"
-        Title="MDE troubleshooter" Height="648" Width="841" WindowStyle="ToolWindow" ResizeMode="NoResize" Background="White">
+        xmlns:local="clr-namespace:WpfApp1"        
+        Title="MDE troubleshooter" Height="647" Width="841" WindowStyle="ToolWindow" ResizeMode="NoResize" Background="White">
 
-    <Grid Name="MainWindow1" Width="800" Margin="52,24,53,69">
+    <Grid x:Name="MainWindow1" Width="800" Margin="52,24,-11,20">
 
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="127" Margin="0,394,0,0" VerticalAlignment="Top" Width="302"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="136" Margin="0,394,0,0" VerticalAlignment="Top" Width="302"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="130" Margin="512,391,0,0" VerticalAlignment="Top" Width="214"/>
 
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="303" Margin="508,44,0,0" VerticalAlignment="Top" Width="212"/>
 
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="304" Margin="0,43,0,0" VerticalAlignment="Top" Width="302"/>
 
-        <Label Name="lblPUAProtect_text" Content="N/A PUAProtect" HorizontalAlignment="Left" Margin="160,231,0,0" VerticalAlignment="Top" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Width="151">
+        <Label x:Name="lblPUAProtect_text" Content="N/A PUAProtect" HorizontalAlignment="Left" Margin="160,231,0,0" VerticalAlignment="Top" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Width="151">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -58,25 +56,25 @@ ASR FAQ - https://docs.microsoft.com/en-us/windows/security/threat-protection/mi
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Name="lblAMServiceVersion" Content="AMServiceVersion:" Margin="7,121,673,4" VerticalAlignment="Top" Height="24" FontWeight="Bold" Width="120"/>
-        <Label Name="lblSignatureVersion" Content="SignatureVersion:" Margin="7,135,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120"/>
-        <Label Name="lblAMEngineVersion" Content="AMEngineVersion:" Margin="7,73,673,4" VerticalAlignment="Top" Height="36" FontWeight="Bold" Width="120"/>
-        <Label Name="lblTamperSource" Content="TamperSource:" Margin="7,149,673,0" VerticalAlignment="Top" Height="25" FontWeight="Bold" Width="120"/>
-        <Label Name="lblAMRunningMode" Content="AMRunningMode:" Margin="7,106,673,4" VerticalAlignment="Top" Height="30" FontWeight="Bold" Width="120"/>
-        <Label Name="lblAMProductVersion" Content="AMProductVersion:" Margin="7,91,673,4" VerticalAlignment="Top" Height="25" FontWeight="Bold" Width="120"/>
-        <Label Name="lblTamper" Content="TamperProtection:" Margin="7,163,673,0" VerticalAlignment="Top" Height="26" FontWeight="Bold" Width="120"/>
-        <Label Name="lblSigUpdates" Content="Signature Last Update:" Margin="7,177,653,0" VerticalAlignment="Top" Height="32" FontWeight="Bold"/>
-        <Label Name="lblSignatureFallBackOrder" Content="SignatureFallBackOrder:" Margin="7,191,647,0" VerticalAlignment="Top" Height="35" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold"/>
-        <Label Name="lblSettings" Content="Defender AV:" HorizontalAlignment="Left" Margin="7,43,0,0" VerticalAlignment="Top" Height="30" Width="128" FontWeight="Bold" FontSize="16"/>
-        <Label Name="lblAMEngineVersion_txt" Content="N/A Engine Version" HorizontalAlignment="Left" Margin="160,74,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120"/>
-        <Label Name="lblTamper_txt" Content="N/A lblTamper" HorizontalAlignment="Left" Margin="160,165,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120"/>
-        <Label Name="lblTamperSource_txt" Content="N/A TamperSource" HorizontalAlignment="Left" Margin="160,152,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120"/>
-        <Label Name="lblAMRunningMode_txt" Content="N/A Running" HorizontalAlignment="Left" Margin="160,108,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120"/>
-        <Label Name="lblAMServiceVersion_txt" Content="N/A ServiceVersion" HorizontalAlignment="Left" Margin="160,122,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120"/>
-        <Label Name="lblAMProductVersion_txt" Content="N/A Product Version" HorizontalAlignment="Left" Margin="160,92,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.97,0.497" FontStyle="Italic" Width="120"/>
-        <Label Name="lblSigUpdates_txt" Content="N/A SigUpdates" HorizontalAlignment="Left" Margin="160,179,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120"/>
-        <Label Name="lblSignatureFallBackOrder_txt" Content="N/A Fallback Order" HorizontalAlignment="Left" Margin="160,193,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120"/>
-        <Button Name="btnRunPerformance" Content="Run Performance Analyze" HorizontalAlignment="Left" Margin="528,83,0,0" VerticalAlignment="Top" Width="178" FontWeight="Bold" BorderBrush="#FF0E0D0D" Background="#FF707070" RenderTransformOrigin="0.5,0.5" >
+        <Label x:Name="lblAMServiceVersion" Content="AMServiceVersion:" Margin="7,121,673,4" VerticalAlignment="Top" Height="24" FontWeight="Bold" Width="120"/>
+        <Label x:Name="lblSignatureVersion" Content="SignatureVersion:" Margin="7,135,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120" FontFamily="Cambria"/>
+        <Label x:Name="lblAMEngineVersion" Content="AMEngineVersion:" Margin="7,73,673,4" VerticalAlignment="Top" Height="36" FontWeight="Bold" Width="120" FontFamily="Cambria"/>
+        <Label x:Name="lblTamperSource" Content="TamperSource:" Margin="7,149,673,0" VerticalAlignment="Top" Height="25" FontWeight="Bold" Width="120" FontFamily="Cambria"/>
+        <Label x:Name="lblAMRunningMode" Content="AMRunningMode:" Margin="7,106,673,4" VerticalAlignment="Top" Height="30" FontWeight="Bold" Width="120" FontFamily="Cambria"/>
+        <Label x:Name="lblAMProductVersion" Content="AMProductVersion:" Margin="7,91,673,4" VerticalAlignment="Top" Height="25" FontWeight="Bold" Width="120" FontFamily="Cambria"/>
+        <Label x:Name="lblTamper" Content="TamperProtection:" Margin="7,163,673,0" VerticalAlignment="Top" Height="26" FontWeight="Bold" Width="120"/>
+        <Label x:Name="lblSigUpdates" Content="Signature Last Update:" Margin="7,177,653,0" VerticalAlignment="Top" Height="32" FontWeight="Bold" FontFamily="Cambria"/>
+        <Label x:Name="lblSignatureFallBackOrder" Content="SignatureFallBackOrder:" Margin="7,191,647,0" VerticalAlignment="Top" Height="35" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" FontFamily="Cambria"/>
+        <Label x:Name="lblSettings" Content="Defender AV:" HorizontalAlignment="Left" Margin="7,43,0,0" VerticalAlignment="Top" Height="30" Width="128" FontWeight="Bold" FontSize="16" FontFamily="Cambria"/>
+        <Label x:Name="lblAMEngineVersion_txt" Content="N/A Engine Version" HorizontalAlignment="Left" Margin="160,74,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120" FontFamily="Cambria"/>
+        <Label x:Name="lblTamper_txt" Content="N/A lblTamper" HorizontalAlignment="Left" Margin="160,165,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120"/>
+        <Label x:Name="lblTamperSource_txt" Content="N/A TamperSource" HorizontalAlignment="Left" Margin="160,152,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120" FontFamily="Cambria"/>
+        <Label x:Name="lblAMRunningMode_txt" Content="N/A Running" HorizontalAlignment="Left" Margin="160,108,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120"/>
+        <Label x:Name="lblAMServiceVersion_txt" Content="N/A ServiceVersion" HorizontalAlignment="Left" Margin="160,122,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120" FontFamily="Cambria"/>
+        <Label x:Name="lblAMProductVersion_txt" Content="N/A Product Version" HorizontalAlignment="Left" Margin="160,92,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.97,0.497" FontStyle="Italic" Width="120" FontFamily="Cambria"/>
+        <Label x:Name="lblSigUpdates_txt" Content="N/A SigUpdates" HorizontalAlignment="Left" Margin="160,179,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120" FontFamily="Cambria"/>
+        <Label x:Name="lblSignatureFallBackOrder_txt" Content="N/A Fallback Order" HorizontalAlignment="Left" Margin="160,193,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120" FontFamily="Cambria"/>
+        <Button x:Name="btnRunPerformance" Content="Run Performance Analyze" HorizontalAlignment="Left" Margin="528,83,0,0" VerticalAlignment="Top" Width="178" FontWeight="Bold" BorderBrush="#FF0E0D0D" Background="#FF707070" RenderTransformOrigin="0.5,0.5" FontFamily="Cambria" FontSize="14" >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -86,28 +84,28 @@ ASR FAQ - https://docs.microsoft.com/en-us/windows/security/threat-protection/mi
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Name="btnShowPerformanceReport" Content="ShowPerformanceReport" HorizontalAlignment="Left" Margin="528,113,0,0" VerticalAlignment="Top" Width="178" FontWeight="Bold" IsEnabled="False" BorderBrush="#FF0E0D0D" Background="#FF707070"/>
-        <CheckBox Name="rdbTopfiles" Content="Top 10 Files " HorizontalAlignment="Left" Margin="528,157,0,0" VerticalAlignment="Top" IsChecked="True" IsEnabled="False"/>
-        <CheckBox Name="rdbTopExtensions" Content="Top 10 Extensions" HorizontalAlignment="Left" Margin="528,178,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-        <CheckBox Name="rdbTopProcess" Content="Top 10 Processes" HorizontalAlignment="Left" Margin="528,198,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-        <CheckBox Name="rdbTopScans" Content="Top 10 Scans" HorizontalAlignment="Left" Margin="528,218,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-        <Button Name="btnShowSenseLogs" Content="Show Sense logs" HorizontalAlignment="Left" Margin="534,398,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.486,-5.099" Width="178" FontWeight="Bold" Background="#FF707070" BorderBrush="#FF707070"/>
-        <Button Name="btnShowDefenderAVLogs" Content="Show Defender AV logs" HorizontalAlignment="Left" Margin="534,441,0,0" VerticalAlignment="Top" Width="178" FontWeight="Bold" Background="#FF707070" BorderBrush="#FF0E0D0D"/>
-        <Label Name="lblComputerName" Content="ComputerName" HorizontalAlignment="Left" Margin="7,0,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <Label Name="lblSignatureVersion_txt" Content="N/A Signature Version" HorizontalAlignment="Left" Margin="160,137,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="151"/>
-        <Label Name="lblOrgID" Content="OrgID:" HorizontalAlignment="Left" Margin="373,5,0,0" VerticalAlignment="Top" Height="26" Width="150" RenderTransformOrigin="0.406,-1.147" FontSize="11" FontWeight="Bold"/>
-        <Label Name="lblOrgID_txt" Content="OrgID GUID N/A" HorizontalAlignment="Left" Margin="425,5,0,0" VerticalAlignment="Top" Height="26" Width="320" RenderTransformOrigin="0.406,-1.147" FontSize="11" FontStyle="Italic"/>
-        <Label Name="lblSettings_Copy1" Content="Performance Tooling:" HorizontalAlignment="Left" Margin="523,47,0,0" VerticalAlignment="Top" Height="31" Width="106" FontWeight="Bold" FontSize="16"/>
-        <Label Name="lblLastestEngineVersion" Content="MS lastest Engine:" HorizontalAlignment="Left" Margin="7,399,0,0" VerticalAlignment="Top" Height="25" Width="152" FontWeight="Bold"/>
-        <Label Name="lblLastestEngineVersion_txt" Content="N/A Engine Version" HorizontalAlignment="Left" Margin="160,402,0,0" VerticalAlignment="Top" FontStyle="Italic"/>
-        <Label Name="lblLastestPlatformVersion" Content="MS lastest Platform:" HorizontalAlignment="Left" Margin="7,415,0,0" VerticalAlignment="Top" Height="25" Width="152" FontWeight="Bold"/>
-        <Label Name="lblLastestPlatformVersion_txt" Content="N/A Platform Version" HorizontalAlignment="Left" Margin="160,417,0,0" VerticalAlignment="Top" FontStyle="Italic"/>
-        <Label Name="lblLatestSigVersion" Content="MS lastest Signature:" HorizontalAlignment="Left" Margin="7,429,0,0" VerticalAlignment="Top" Height="42" Width="152" FontWeight="Bold"/>
-        <Label Name="lblLatestSigVersion_txt" Content="N/A Signature Version" HorizontalAlignment="Left" Margin="160,431,0,0" VerticalAlignment="Top" FontStyle="Italic"/>
-        <Button Name="btnExclusions" Content="Show Exclusions" HorizontalAlignment="Left" Margin="536,484,0,0" VerticalAlignment="Top" Width="174" FontWeight="Bold" Background="#FF707070" BorderBrush="#FF0E0D0D"/>
-        <Button Name="btnCheckForLastestUpdate" Content="Check for latest Updates" HorizontalAlignment="Left" Margin="111,462,0,0" VerticalAlignment="Top" Width="175" FontWeight="Bold" Background="#FF707070" BorderBrush="#FF101010"/>
-        <Label Name="lblCloudBlockLevel" Content="CloudBlockLevel:" Margin="7,217,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120"/>
-        <Label Name="lblCloudBlockLevel_txt" Content="N/A lblCloudBlockLevel" HorizontalAlignment="Left" Margin="160,218,0,0" VerticalAlignment="Top" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Width="182">
+        <Button x:Name="btnShowPerformanceReport" Content="ShowPerformanceReport" HorizontalAlignment="Left" Margin="528,113,0,0" VerticalAlignment="Top" Width="178" FontWeight="Bold" IsEnabled="False" BorderBrush="#FF0E0D0D" Background="#FF707070" FontFamily="Cambria"/>
+        <CheckBox x:Name="rdbTopfiles" Content="Top 10 Files " HorizontalAlignment="Left" Margin="528,157,0,0" VerticalAlignment="Top" IsChecked="True" IsEnabled="False" FontFamily="Cambria"/>
+        <CheckBox x:Name="rdbTopExtensions" Content="Top 10 Extensions" HorizontalAlignment="Left" Margin="528,178,0,0" VerticalAlignment="Top" IsEnabled="False" FontFamily="Cambria"/>
+        <CheckBox x:Name="rdbTopProcess" Content="Top 10 Processes" HorizontalAlignment="Left" Margin="528,198,0,0" VerticalAlignment="Top" IsEnabled="False" FontFamily="Cambria"/>
+        <CheckBox x:Name="rdbTopScans" Content="Top 10 Scans" HorizontalAlignment="Left" Margin="528,218,0,0" VerticalAlignment="Top" IsEnabled="False" FontFamily="Cambria"/>
+        <Button x:Name="btnShowSenseLogs" Content="Show Sense logs" HorizontalAlignment="Left" Margin="534,423,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.486,-5.099" Width="178" FontWeight="Bold" Background="#FF707070" BorderBrush="#FF0D0404" FontFamily="Cambria" Foreground="#FF0D0404" FontSize="14"/>
+        <Button x:Name="btnShowDefenderAVLogs" Content="Show Defender AV logs" HorizontalAlignment="Left" Margin="534,453,0,0" VerticalAlignment="Top" Width="178" FontWeight="Bold" Background="#FF707070" BorderBrush="#FF0E0D0D" FontFamily="Cambria" FontSize="14"/>
+        <Label x:Name="lblComputerName" Content="ComputerName" HorizontalAlignment="Left" Margin="7,0,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" FontFamily="Cambria"/>
+        <Label x:Name="lblSignatureVersion_txt" Content="N/A Signature Version" HorizontalAlignment="Left" Margin="160,137,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="151" FontFamily="Cambria"/>
+        <Label x:Name="lblOrgID" Content="OrgID:" HorizontalAlignment="Left" Margin="373,5,0,0" VerticalAlignment="Top" Height="26" Width="150" RenderTransformOrigin="0.406,-1.147" FontSize="11" FontWeight="Bold" FontFamily="Cambria"/>
+        <Label x:Name="lblOrgID_txt" Content="OrgID GUID N/A" HorizontalAlignment="Left" Margin="425,5,0,0" VerticalAlignment="Top" Height="26" Width="320" RenderTransformOrigin="0.406,-1.147" FontSize="11" FontStyle="Italic" FontFamily="Cambria"/>
+        <Label x:Name="lblSettings_Copy1" Content="Performance Tooling:" HorizontalAlignment="Left" Margin="523,47,0,0" VerticalAlignment="Top" Height="31" Width="106" FontWeight="Bold" FontSize="16" FontFamily="Cambria"/>
+        <Label x:Name="lblLastestEngineVersion" Content="MS lastest Engine:" HorizontalAlignment="Left" Margin="10,424,0,0" VerticalAlignment="Top" Height="25" Width="152" FontWeight="Bold" FontFamily="Cambria"/>
+        <Label x:Name="lblLastestEngineVersion_txt" Content="N/A Engine Version" HorizontalAlignment="Left" Margin="163,427,0,0" VerticalAlignment="Top" FontStyle="Italic" FontFamily="Cambria"/>
+        <Label x:Name="lblLastestPlatformVersion" Content="MS lastest Platform:" HorizontalAlignment="Left" Margin="10,440,0,0" VerticalAlignment="Top" Height="25" Width="152" FontWeight="Bold"/>
+        <Label x:Name="lblLastestPlatformVersion_txt" Content="N/A Platform Version" HorizontalAlignment="Left" Margin="151,442,0,0" VerticalAlignment="Top" FontStyle="Italic" FontFamily="Cambria"/>
+        <Label x:Name="lblLatestSigVersion" Content="MS lastest Signature:" HorizontalAlignment="Left" Margin="10,454,0,0" VerticalAlignment="Top" Height="42" Width="152" FontWeight="Bold" FontFamily="Cambria"/>
+        <Label x:Name="lblLatestSigVersion_txt" Content="N/A Signature Version" HorizontalAlignment="Left" Margin="163,456,0,0" VerticalAlignment="Top" FontStyle="Italic" FontFamily="Cambria"/>
+        <Button x:Name="btnExclusions" Content="Show Exclusions" HorizontalAlignment="Left" Margin="536,484,0,0" VerticalAlignment="Top" Width="174" FontWeight="Bold" Background="#FF707070" BorderBrush="#FF0E0D0D" FontFamily="Cambria" FontSize="14"/>
+        <Button x:Name="btnCheckForLastestUpdate" Content="Check for latest Updates" HorizontalAlignment="Left" Margin="57,482,0,0" VerticalAlignment="Top" Width="175" FontWeight="Bold" Background="#FF707070" BorderBrush="#FF101010" FontFamily="Cambria" FontSize="14"/>
+        <Label x:Name="lblCloudBlockLevel" Content="CloudBlockLevel:" Margin="7,217,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120"/>
+        <Label x:Name="lblCloudBlockLevel_txt" Content="N/A lblCloudBlockLevel" HorizontalAlignment="Left" Margin="160,218,0,0" VerticalAlignment="Top" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Width="182" FontFamily="Cambria">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -117,11 +115,10 @@ ASR FAQ - https://docs.microsoft.com/en-us/windows/security/threat-protection/mi
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Name="lblblockatFirst" Content="BlockatFirst:" Margin="7,230,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120"/>
-        <Label Name="lblQuarantine" Content="Quarantine:" Margin="7,0,673,0" VerticalAlignment="Center" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120"/>
-        <Label Name="lblQuarantine_text" Content="N/A Quarantine" HorizontalAlignment="Left" Margin="160,259,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120"/>
-        <Label Name="lblCloudTImeout" Content="CloudTimeout:" Margin="7,243,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120"/>
-        <Label Name="lblCloudTimeout_text" Content="N/A Timeout" HorizontalAlignment="Left" Margin="160,245,0,0" VerticalAlignment="Top" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Width="120">
+        <Label x:Name="lblblockatFirst" Content="BlockatFirst:" Margin="7,230,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120" FontFamily="Cambria"/>
+        <Label x:Name="lblQuarantine_text" Content="N/A Quarantine" HorizontalAlignment="Left" Margin="160,259,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120" FontFamily="Cambria"/>
+        <Label x:Name="lblCloudTImeout" Content="CloudTimeout:" Margin="7,243,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120" FontFamily="Cambria"/>
+        <Label x:Name="lblCloudTimeout_text" Content="N/A Timeout" HorizontalAlignment="Left" Margin="160,245,0,0" VerticalAlignment="Top" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Width="120" FontFamily="Cambria">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -131,8 +128,20 @@ ASR FAQ - https://docs.microsoft.com/en-us/windows/security/threat-protection/mi
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button Name="btnShowASR" Content="Show ASR rules" HorizontalAlignment="Left" Margin="111,315,0,0" VerticalAlignment="Top" Width="175" FontWeight="Bold" Background="#FF707070" BorderBrush="#FF101010"/>
-        <Button Name="btnProtectionLogs" Content="Show Microsoft Protection Log" HorizontalAlignment="Left" Margin="521,272,0,0" VerticalAlignment="Top" Width="190" FontWeight="Bold" BorderBrush="#FF0E0D0D" Background="#FF707070" RenderTransformOrigin="0.5,0.5" >
+        <Button x:Name="btnShowASR" Content="Show ASR rules" HorizontalAlignment="Left" Margin="111,315,0,0" VerticalAlignment="Top" Width="175" FontWeight="Bold" Background="#FF707070" BorderBrush="#FF101010" FontFamily="Cambria" FontSize="14"/>
+        <Label x:Name="lblEnableFileHashComputation" Content="EnableFileHashComputation:" Margin="7,284,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120" FontFamily="Cambria"/>
+        <Label x:Name="lblEnableFileHashComputation_Text" Content="N/A" HorizontalAlignment="Left" Margin="160,283,0,0" VerticalAlignment="Top" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Width="120" FontFamily="Cambria">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.446"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Button x:Name="btnUpdateIntel" Content="Update intel updates" HorizontalAlignment="Left" Margin="58,504,0,0" VerticalAlignment="Top" Width="175" FontWeight="Bold" Background="#FF707070" BorderBrush="#FF101010" FontFamily="Cambria" FontSize="14"/>
+        <Button x:Name="btnDownloadClientAnalyzer" Content="Download ClientAnalyzer" HorizontalAlignment="Left" Margin="522,305,0,0" VerticalAlignment="Top" Width="190" FontWeight="Bold" BorderBrush="#FF0E0D0D" Background="#FF707070" RenderTransformOrigin="0.5,0.5" FontFamily="Cambria" FontSize="14" >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -142,32 +151,12 @@ ASR FAQ - https://docs.microsoft.com/en-us/windows/security/threat-protection/mi
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Label Name="lblEnableFileHashComputation" Content="EnableFileHashComputation:" Margin="7,284,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120"/>
-        <Label Name="lblEnableFileHashComputation_Text" Content="N/A" HorizontalAlignment="Left" Margin="160,283,0,0" VerticalAlignment="Top" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Width="120">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.446"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Button Name="btnUpdateIntel" Content="Update intel updates" HorizontalAlignment="Left" Margin="111,487,0,0" VerticalAlignment="Top" Width="175" FontWeight="Bold" Background="#FF707070" BorderBrush="#FF101010"/>
-        <Button Name="btnDownloadClientAnalyzer" Content="Download ClientAnalyzer" HorizontalAlignment="Left" Margin="521,305,0,0" VerticalAlignment="Top" Width="190" FontWeight="Bold" BorderBrush="#FF0E0D0D" Background="#FF707070" RenderTransformOrigin="0.5,0.5" >
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform X="-2"/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
+        <Label x:Name="lblQuarantine" Content="Quarantine:" Margin="7,258,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120" FontFamily="Cambria"/>
+        <Label x:Name="lblLogs" Content="Logs:" HorizontalAlignment="Left" Margin="523,393,0,0" VerticalAlignment="Top" Height="31" Width="106" FontWeight="Bold" FontSize="16" FontFamily="Cambria"/>
+        <Label x:Name="lblUpdates" Content="Updates:" HorizontalAlignment="Left" Margin="10,393,0,0" VerticalAlignment="Top" Height="31" Width="106" FontWeight="Bold" FontSize="16" FontFamily="Cambria"/>
 
     </Grid>
 </Window>
-
 
 
 
