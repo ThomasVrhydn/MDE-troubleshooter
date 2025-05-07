@@ -18,8 +18,9 @@ Script need to run as admin to view all settings.
 Script provided as is. Use at own risk. No guarantees or warranty provided.
 
 # Contact
-twitter:  @thomasvrhydn
 linkedin: https://www.linkedin.com/in/thomasvrhydn/
+twitter:  @thomasvrhydn
+
 
 # References
 
