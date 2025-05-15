@@ -1,7 +1,6 @@
 # Author: Thomas Verheyden
-# Created: 28.06.2023
-# Update: 04.01.2025
-# Version: 1.5
+# New relaase: 15.05.2025
+# Version: 1.6.1
 # Blogpost: https://vertho.tech/2023/06/30/tool-mde-troubleshooter-is-born/
 # Website: vertho.tech
 # Twitter: @thomasvrhydn
@@ -28,23 +27,22 @@ ASR FAQ - https://docs.microsoft.com/en-us/windows/security/threat-protection/mi
 #>
 
 
-[void][System.Reflection.Assembly]::LoadWithPartialName('presentationframework')
+#[SYstem.Windows.Markup.XamlReader]::Load($xamlReader)
+[void][System.Reflection.Assembly]::LoadWithPartialName('presentationframework')  
 [xml]$xaml = @"
 <Window 
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"     
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
        
-        Title="MDE troubleshooter" Height="647" Width="841" WindowStyle="ToolWindow" ResizeMode="NoResize" Background="White">
+        Title="MDE troubleshooter" Height="729" Width="841" WindowStyle="ToolWindow" ResizeMode="NoResize" Background="White">
 
-    <Grid Name="MainWindow1" Width="800" Margin="52,24,-11,20">
+    <Grid Name="MainWindow1" Width="800" Margin="52,24,-11,6">
 
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="136" Margin="0,394,0,0" VerticalAlignment="Top" Width="302"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="130" Margin="512,391,0,0" VerticalAlignment="Top" Width="214"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="193" Margin="0,394,0,0" VerticalAlignment="Top" Width="302"/>
 
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="303" Margin="508,44,0,0" VerticalAlignment="Top" Width="212"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="303" Margin="425,44,0,0" VerticalAlignment="Top" Width="320"/>
 
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="304" Margin="0,43,0,0" VerticalAlignment="Top" Width="302"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="335" Margin="0,43,0,0" VerticalAlignment="Top" Width="400"/>
 
         <Label Name="lblPUAProtect_text" Content="N/A PUAProtect" HorizontalAlignment="Left" Margin="160,231,0,0" VerticalAlignment="Top" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Width="151">
             <Label.RenderTransform>
@@ -57,24 +55,24 @@ ASR FAQ - https://docs.microsoft.com/en-us/windows/security/threat-protection/mi
             </Label.RenderTransform>
         </Label>
         <Label Name="lblAMServiceVersion" Content="AMServiceVersion:" Margin="7,121,673,4" VerticalAlignment="Top" Height="24" FontWeight="Bold" Width="120"/>
-        <Label Name="lblSignatureVersion" Content="SignatureVersion:" Margin="7,135,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120" FontFamily="Cambria"/>
-        <Label Name="lblAMEngineVersion" Content="AMEngineVersion:" Margin="7,73,673,4" VerticalAlignment="Top" Height="36" FontWeight="Bold" Width="120" FontFamily="Cambria"/>
-        <Label Name="lblTamperSource" Content="TamperSource:" Margin="7,149,673,0" VerticalAlignment="Top" Height="25" FontWeight="Bold" Width="120" FontFamily="Cambria"/>
-        <Label Name="lblAMRunningMode" Content="AMRunningMode:" Margin="7,106,673,4" VerticalAlignment="Top" Height="30" FontWeight="Bold" Width="120" FontFamily="Cambria"/>
-        <Label Name="lblAMProductVersion" Content="AMProductVersion:" Margin="7,91,673,4" VerticalAlignment="Top" Height="25" FontWeight="Bold" Width="120" FontFamily="Cambria"/>
+        <Label Name="lblSignatureVersion" Content="SignatureVersion:" Margin="7,135,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120" FontFamily="Segoe UI"/>
+        <Label Name="lblAMEngineVersion" Content="AMEngineVersion:" Margin="7,73,673,4" VerticalAlignment="Top" Height="36" FontWeight="Bold" Width="120" FontFamily="Segoe UI"/>
+        <Label Name="lblTamperSource" Content="TamperSource:" Margin="7,149,673,0" VerticalAlignment="Top" Height="25" FontWeight="Bold" Width="120" FontFamily="Segoe UI"/>
+        <Label Name="lblAMRunningMode" Content="AMRunningMode:" Margin="7,106,673,4" VerticalAlignment="Top" Height="30" FontWeight="Bold" Width="120" FontFamily="Segoe UI"/>
+        <Label Name="lblAMProductVersion" Content="AMProductVersion:" Margin="7,91,673,4" VerticalAlignment="Top" Height="25" FontWeight="Bold" Width="120" FontFamily="Segoe UI"/>
         <Label Name="lblTamper" Content="TamperProtection:" Margin="7,163,673,0" VerticalAlignment="Top" Height="26" FontWeight="Bold" Width="120"/>
-        <Label Name="lblSigUpdates" Content="Signature Last Update:" Margin="7,177,653,0" VerticalAlignment="Top" Height="32" FontWeight="Bold" FontFamily="Cambria"/>
-        <Label Name="lblSignatureFallBackOrder" Content="SignatureFallBackOrder:" Margin="7,191,647,0" VerticalAlignment="Top" Height="35" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" FontFamily="Cambria"/>
-        <Label Name="lblSettings" Content="Defender AV:" HorizontalAlignment="Left" Margin="7,43,0,0" VerticalAlignment="Top" Height="30" Width="128" FontWeight="Bold" FontSize="16" FontFamily="Cambria"/>
-        <Label Name="lblAMEngineVersion_txt" Content="N/A Engine Version" HorizontalAlignment="Left" Margin="160,74,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120" FontFamily="Cambria"/>
+        <Label Name="lblSigUpdates" Content="Signature Last Update:" Margin="7,177,653,0" VerticalAlignment="Top" Height="32" FontWeight="Bold" FontFamily="Segoe UI"/>
+        <Label Name="lblSignatureFallBackOrder" Content="SignatureFallBackOrder:" Margin="7,191,647,0" VerticalAlignment="Top" Height="35" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" FontFamily="Segoe UI"/>
+        <Label Name="lblSettings" Content="Defender AV:" HorizontalAlignment="Left" Margin="7,43,0,0" VerticalAlignment="Top" Height="30" Width="128" FontWeight="Bold" FontSize="16" FontFamily="Segoe UI"/>
+        <Label Name="lblAMEngineVersion_txt" Content="N/A Engine Version" HorizontalAlignment="Left" Margin="160,74,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120" FontFamily="Segoe UI"/>
         <Label Name="lblTamper_txt" Content="N/A lblTamper" HorizontalAlignment="Left" Margin="160,165,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120"/>
-        <Label Name="lblTamperSource_txt" Content="N/A TamperSource" HorizontalAlignment="Left" Margin="160,152,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120" FontFamily="Cambria"/>
+        <Label Name="lblTamperSource_txt" Content="N/A TamperSource" HorizontalAlignment="Left" Margin="160,152,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120" FontFamily="Segoe UI"/>
         <Label Name="lblAMRunningMode_txt" Content="N/A Running" HorizontalAlignment="Left" Margin="160,108,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120"/>
-        <Label Name="lblAMServiceVersion_txt" Content="N/A ServiceVersion" HorizontalAlignment="Left" Margin="160,122,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120" FontFamily="Cambria"/>
-        <Label Name="lblAMProductVersion_txt" Content="N/A Product Version" HorizontalAlignment="Left" Margin="160,92,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.97,0.497" FontStyle="Italic" Width="120" FontFamily="Cambria"/>
-        <Label Name="lblSigUpdates_txt" Content="N/A SigUpdates" HorizontalAlignment="Left" Margin="160,179,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120" FontFamily="Cambria"/>
-        <Label Name="lblSignatureFallBackOrder_txt" Content="N/A Fallback Order" HorizontalAlignment="Left" Margin="160,193,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120" FontFamily="Cambria"/>
-        <Button Name="btnRunPerformance" Content="Run Performance Analyze" HorizontalAlignment="Left" Margin="528,83,0,0" VerticalAlignment="Top" Width="178" FontWeight="Bold" BorderBrush="#FF0E0D0D" Background="#FF707070" RenderTransformOrigin="0.5,0.5" FontFamily="Cambria" FontSize="14" >
+        <Label Name="lblAMServiceVersion_txt" Content="N/A ServiceVersion" HorizontalAlignment="Left" Margin="160,122,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120" FontFamily="Segoe UI"/>
+        <Label Name="lblAMProductVersion_txt" Content="N/A Product Version" HorizontalAlignment="Left" Margin="160,92,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.97,0.497" FontStyle="Italic" Width="120" FontFamily="Segoe UI"/>
+        <Label Name="lblSigUpdates_txt" Content="N/A SigUpdates" HorizontalAlignment="Left" Margin="160,179,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120" FontFamily="Segoe UI"/>
+        <Label Name="lblSignatureFallBackOrder_txt" Content="N/A Fallback Order" HorizontalAlignment="Left" Margin="160,193,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120" FontFamily="Segoe UI"/>
+        <Button Name="btnRunPerformance" Content="Run Performance Analyzer" HorizontalAlignment="Left" Margin="472,83,0,0" VerticalAlignment="Top" Width="234" FontWeight="Bold" BorderBrush="#FF0E0D0D" Background="#FFB1AFAF" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe UI" FontSize="14" >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -84,28 +82,28 @@ ASR FAQ - https://docs.microsoft.com/en-us/windows/security/threat-protection/mi
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Name="btnShowPerformanceReport" Content="ShowPerformanceReport" HorizontalAlignment="Left" Margin="528,113,0,0" VerticalAlignment="Top" Width="178" FontWeight="Bold" IsEnabled="False" BorderBrush="#FF0E0D0D" Background="#FF707070" FontFamily="Cambria"/>
-        <CheckBox Name="rdbTopfiles" Content="Top 10 Files " HorizontalAlignment="Left" Margin="528,157,0,0" VerticalAlignment="Top" IsChecked="True" IsEnabled="False" FontFamily="Cambria"/>
-        <CheckBox Name="rdbTopExtensions" Content="Top 10 Extensions" HorizontalAlignment="Left" Margin="528,178,0,0" VerticalAlignment="Top" IsEnabled="False" FontFamily="Cambria"/>
-        <CheckBox Name="rdbTopProcess" Content="Top 10 Processes" HorizontalAlignment="Left" Margin="528,198,0,0" VerticalAlignment="Top" IsEnabled="False" FontFamily="Cambria"/>
-        <CheckBox Name="rdbTopScans" Content="Top 10 Scans" HorizontalAlignment="Left" Margin="528,218,0,0" VerticalAlignment="Top" IsEnabled="False" FontFamily="Cambria"/>
-        <Button Name="btnShowSenseLogs" Content="Show Sense logs" HorizontalAlignment="Left" Margin="534,423,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.486,-5.099" Width="178" FontWeight="Bold" Background="#FF707070" BorderBrush="#FF0D0404" FontFamily="Cambria" Foreground="#FF0D0404" FontSize="14"/>
-        <Button Name="btnShowDefenderAVLogs" Content="Show Defender AV logs" HorizontalAlignment="Left" Margin="534,453,0,0" VerticalAlignment="Top" Width="178" FontWeight="Bold" Background="#FF707070" BorderBrush="#FF0E0D0D" FontFamily="Cambria" FontSize="14"/>
-        <Label Name="lblComputerName" Content="ComputerName" HorizontalAlignment="Left" Margin="7,0,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" FontFamily="Cambria"/>
-        <Label Name="lblSignatureVersion_txt" Content="N/A Signature Version" HorizontalAlignment="Left" Margin="160,137,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="151" FontFamily="Cambria"/>
-        <Label Name="lblOrgID" Content="OrgID:" HorizontalAlignment="Left" Margin="373,5,0,0" VerticalAlignment="Top" Height="26" Width="150" RenderTransformOrigin="0.406,-1.147" FontSize="11" FontWeight="Bold" FontFamily="Cambria"/>
-        <Label Name="lblOrgID_txt" Content="OrgID GUID N/A" HorizontalAlignment="Left" Margin="425,5,0,0" VerticalAlignment="Top" Height="26" Width="320" RenderTransformOrigin="0.406,-1.147" FontSize="11" FontStyle="Italic" FontFamily="Cambria"/>
-        <Label Name="lblSettings_Copy1" Content="Performance Tooling:" HorizontalAlignment="Left" Margin="523,47,0,0" VerticalAlignment="Top" Height="31" Width="106" FontWeight="Bold" FontSize="16" FontFamily="Cambria"/>
-        <Label Name="lblLastestEngineVersion" Content="MS lastest Engine:" HorizontalAlignment="Left" Margin="10,424,0,0" VerticalAlignment="Top" Height="25" Width="152" FontWeight="Bold" FontFamily="Cambria"/>
-        <Label Name="lblLastestEngineVersion_txt" Content="N/A Engine Version" HorizontalAlignment="Left" Margin="163,427,0,0" VerticalAlignment="Top" FontStyle="Italic" FontFamily="Cambria"/>
+        <Button Name="btnShowPerformanceReport" Content="ShowPerformanceReport" HorizontalAlignment="Left" Margin="470,113,0,0" VerticalAlignment="Top" Width="236" FontWeight="Bold" IsEnabled="False" BorderBrush="#FF0E0D0D" Background="#FFB1AFAF" FontFamily="Segoe UI"/>
+        <CheckBox Name="rdbTopfiles" Content="Top 10 Files " HorizontalAlignment="Left" Margin="475,236,0,0" VerticalAlignment="Top" IsChecked="False" IsEnabled="False" FontFamily="Segoe UI"/>
+        <CheckBox Name="rdbTopExtensions" Content="Top 10 Extensions" HorizontalAlignment="Left" Margin="475,175,0,0" VerticalAlignment="Top" IsEnabled="False" FontFamily="Segoe UI"/>
+        <CheckBox Name="rdbTopProcess" Content="Top 10 Processes" HorizontalAlignment="Left" Margin="475,195,0,0" VerticalAlignment="Top" IsEnabled="False" FontFamily="Segoe UI"/>
+        <CheckBox Name="rdbTopScans" Content="Top 10 Scans" HorizontalAlignment="Left" Margin="475,215,0,0" VerticalAlignment="Top" IsEnabled="False" FontFamily="Segoe UI"/>
+        <Button Name="btnShowSenseLogs" Content="Show Sense logs" HorizontalAlignment="Left" Margin="455,421,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.486,-5.099" Width="178" FontWeight="Bold" Background="#FFB1AFAF" BorderBrush="#FF0D0404" FontFamily="Segoe UI" Foreground="#FF0D0404" FontSize="14"/>
+        <Button Name="btnShowDefenderAVLogs" Content="Show Defender AV logs" HorizontalAlignment="Left" Margin="455,451,0,0" VerticalAlignment="Top" Width="178" FontWeight="Bold" Background="#FFB1AFAF" BorderBrush="#FF0E0D0D" FontFamily="Segoe UI" FontSize="14"/>
+        <Label Name="lblComputerName" Content="ComputerName" HorizontalAlignment="Left" Margin="7,0,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" FontFamily="Segoe UI"/>
+        <Label Name="lblSignatureVersion_txt" Content="N/A Signature Version" HorizontalAlignment="Left" Margin="160,137,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="151" FontFamily="Segoe UI"/>
+        <Label Name="lblOrgID" Content="OrgID:" HorizontalAlignment="Left" Margin="373,5,0,0" VerticalAlignment="Top" Height="26" Width="150" RenderTransformOrigin="0.406,-1.147" FontSize="11" FontWeight="Bold" FontFamily="Segoe UI"/>
+        <Label Name="lblOrgID_txt" Content="OrgID GUID N/A" HorizontalAlignment="Left" Margin="425,5,0,0" VerticalAlignment="Top" Height="26" Width="320" RenderTransformOrigin="0.406,-1.147" FontSize="11" FontStyle="Italic" FontFamily="Segoe UI"/>
+        <Label Name="lblSettings_Copy1" Content="Performance Tooling:" HorizontalAlignment="Left" Margin="448,47,0,0" VerticalAlignment="Top" Height="31" Width="203" FontWeight="Bold" FontSize="16" FontFamily="Segoe UI"/>
+        <Label Name="lblLastestEngineVersion" Content="MS lastest Engine:" HorizontalAlignment="Left" Margin="10,424,0,0" VerticalAlignment="Top" Height="25" Width="152" FontWeight="Bold" FontFamily="Segoe UI"/>
+        <Label Name="lblLastestEngineVersion_txt" Content="N/A Engine Version" HorizontalAlignment="Left" Margin="163,427,0,0" VerticalAlignment="Top" FontStyle="Italic" FontFamily="Segoe UI"/>
         <Label Name="lblLastestPlatformVersion" Content="MS lastest Platform:" HorizontalAlignment="Left" Margin="10,440,0,0" VerticalAlignment="Top" Height="25" Width="152" FontWeight="Bold"/>
-        <Label Name="lblLastestPlatformVersion_txt" Content="N/A Platform Version" HorizontalAlignment="Left" Margin="151,442,0,0" VerticalAlignment="Top" FontStyle="Italic" FontFamily="Cambria"/>
-        <Label Name="lblLatestSigVersion" Content="MS lastest Signature:" HorizontalAlignment="Left" Margin="10,454,0,0" VerticalAlignment="Top" Height="42" Width="152" FontWeight="Bold" FontFamily="Cambria"/>
-        <Label Name="lblLatestSigVersion_txt" Content="N/A Signature Version" HorizontalAlignment="Left" Margin="163,456,0,0" VerticalAlignment="Top" FontStyle="Italic" FontFamily="Cambria"/>
-        <Button Name="btnExclusions" Content="Show Exclusions" HorizontalAlignment="Left" Margin="536,484,0,0" VerticalAlignment="Top" Width="174" FontWeight="Bold" Background="#FF707070" BorderBrush="#FF0E0D0D" FontFamily="Cambria" FontSize="14"/>
-        <Button Name="btnCheckForLastestUpdate" Content="Check for latest Updates" HorizontalAlignment="Left" Margin="57,482,0,0" VerticalAlignment="Top" Width="175" FontWeight="Bold" Background="#FF707070" BorderBrush="#FF101010" FontFamily="Cambria" FontSize="14"/>
+        <Label Name="lblLastestPlatformVersion_txt" Content="N/A Platform Version" HorizontalAlignment="Left" Margin="151,442,0,0" VerticalAlignment="Top" FontStyle="Italic" FontFamily="Segoe UI"/>
+        <Label Name="lblLatestSigVersion" Content="MS lastest Signature:" HorizontalAlignment="Left" Margin="10,454,0,0" VerticalAlignment="Top" Height="42" Width="152" FontWeight="Bold" FontFamily="Segoe UI"/>
+        <Label Name="lblLatestSigVersion_txt" Content="N/A Signature Version" HorizontalAlignment="Left" Margin="163,456,0,0" VerticalAlignment="Top" FontStyle="Italic" FontFamily="Segoe UI"/>
+        <Button Name="btnExclusions" Content="Show Exclusions" HorizontalAlignment="Left" Margin="457,482,0,0" VerticalAlignment="Top" Width="174" FontWeight="Bold" Background="#FFB1AFAF" BorderBrush="#FF0E0D0D" FontFamily="Segoe UI" FontSize="14"/>
+        <Button Name="btnCheckForLastestUpdate" Content="Check for latest Updates" HorizontalAlignment="Left" Margin="56,506,0,0" VerticalAlignment="Top" Width="229" FontWeight="Bold" Background="#FFB1AFAF" BorderBrush="#FF101010" FontFamily="Segoe UI" FontSize="14"/>
         <Label Name="lblCloudBlockLevel" Content="CloudBlockLevel:" Margin="7,217,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120"/>
-        <Label Name="lblCloudBlockLevel_txt" Content="N/A lblCloudBlockLevel" HorizontalAlignment="Left" Margin="160,218,0,0" VerticalAlignment="Top" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Width="182" FontFamily="Cambria">
+        <Label Name="lblCloudBlockLevel_txt" Content="N/A lblCloudBlockLevel" HorizontalAlignment="Left" Margin="160,218,0,0" VerticalAlignment="Top" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Width="182" FontFamily="Segoe UI">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -115,10 +113,10 @@ ASR FAQ - https://docs.microsoft.com/en-us/windows/security/threat-protection/mi
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Name="lblblockatFirst" Content="BlockatFirst:" Margin="7,230,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120" FontFamily="Cambria"/>
-        <Label Name="lblQuarantine_text" Content="N/A Quarantine" HorizontalAlignment="Left" Margin="160,259,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120" FontFamily="Cambria"/>
-        <Label Name="lblCloudTImeout" Content="CloudTimeout:" Margin="7,243,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120" FontFamily="Cambria"/>
-        <Label Name="lblCloudTimeout_text" Content="N/A Timeout" HorizontalAlignment="Left" Margin="160,245,0,0" VerticalAlignment="Top" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Width="120" FontFamily="Cambria">
+        <Label Name="lblblockatFirst" Content="BlockatFirst:" Margin="7,230,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120" FontFamily="Segoe UI"/>
+        <Label Name="lblQuarantine_text" Content="N/A Quarantine" HorizontalAlignment="Left" Margin="160,259,0,0" VerticalAlignment="Top" FontStyle="Italic" Width="120" FontFamily="Segoe UI"/>
+        <Label Name="lblCloudTImeout" Content="CloudTimeout:" Margin="7,243,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120" FontFamily="Segoe UI"/>
+        <Label Name="lblCloudTimeout_text" Content="N/A Timeout" HorizontalAlignment="Left" Margin="160,245,0,0" VerticalAlignment="Top" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Width="120" FontFamily="Segoe UI">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -128,9 +126,9 @@ ASR FAQ - https://docs.microsoft.com/en-us/windows/security/threat-protection/mi
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button Name="btnShowASR" Content="Show ASR rules" HorizontalAlignment="Left" Margin="111,315,0,0" VerticalAlignment="Top" Width="175" FontWeight="Bold" Background="#FF707070" BorderBrush="#FF101010" FontFamily="Cambria" FontSize="14"/>
-        <Label Name="lblEnableFileHashComputation" Content="EnableFileHashComputation:" Margin="7,284,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120" FontFamily="Cambria"/>
-        <Label Name="lblEnableFileHashComputation_Text" Content="N/A" HorizontalAlignment="Left" Margin="160,283,0,0" VerticalAlignment="Top" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Width="120" FontFamily="Cambria">
+        <Button Name="btnShowASR" Content="Show ASR rules" HorizontalAlignment="Left" Margin="60,342,0,0" VerticalAlignment="Top" Width="176" FontWeight="Bold" Background="#FFB1AFAF" BorderBrush="#FF101010" FontFamily="Segoe UI" FontSize="14"/>
+        <Label Name="lblEnableFileHashComputation" Content="EnableFileHashComputation:" Margin="7,284,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120" FontFamily="Segoe UI"/>
+        <Label Name="lblEnableFileHashComputation_Text" Content="N/A" HorizontalAlignment="Left" Margin="160,283,0,0" VerticalAlignment="Top" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Width="120" FontFamily="Segoe UI">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -140,8 +138,8 @@ ASR FAQ - https://docs.microsoft.com/en-us/windows/security/threat-protection/mi
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button Name="btnUpdateIntel" Content="Update intel updates" HorizontalAlignment="Left" Margin="58,504,0,0" VerticalAlignment="Top" Width="175" FontWeight="Bold" Background="#FF707070" BorderBrush="#FF101010" FontFamily="Cambria" FontSize="14"/>
-        <Button Name="btnDownloadClientAnalyzer" Content="Download ClientAnalyzer" HorizontalAlignment="Left" Margin="522,305,0,0" VerticalAlignment="Top" Width="190" FontWeight="Bold" BorderBrush="#FF0E0D0D" Background="#FF707070" RenderTransformOrigin="0.5,0.5" FontFamily="Cambria" FontSize="14" >
+        <Button Name="btnUpdateIntel" Content="Update intel updates" HorizontalAlignment="Left" Margin="56,541,0,0" VerticalAlignment="Top" Width="229" FontWeight="Bold" Background="#FFB1AFAF" BorderBrush="#FF101010" FontFamily="Segoe UI" FontSize="14"/>
+        <Button Name="btnDownloadClientAnalyzer" Content="Download ClientAnalyzer" HorizontalAlignment="Left" Margin="472,271,0,0" VerticalAlignment="Top" Width="240" FontWeight="Bold" BorderBrush="#FF0E0D0D" Background="#FFB1AFAF" RenderTransformOrigin="0.5,0.5" FontFamily="Segoe UI" FontSize="14" >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -151,13 +149,49 @@ ASR FAQ - https://docs.microsoft.com/en-us/windows/security/threat-protection/mi
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Label Name="lblQuarantine" Content="Quarantine:" Margin="7,258,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120" FontFamily="Cambria"/>
-        <Label Name="lblLogs" Content="Logs:" HorizontalAlignment="Left" Margin="523,393,0,0" VerticalAlignment="Top" Height="31" Width="106" FontWeight="Bold" FontSize="16" FontFamily="Cambria"/>
-        <Label Name="lblUpdates" Content="Updates:" HorizontalAlignment="Left" Margin="10,393,0,0" VerticalAlignment="Top" Height="31" Width="106" FontWeight="Bold" FontSize="16" FontFamily="Cambria"/>
+        <Label Name="lblQuarantine" Content="Quarantine:" Margin="7,258,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120"/>
+        <Label Name="lblLogs" Content="Logs:" HorizontalAlignment="Left" Margin="385,392,0,0" VerticalAlignment="Top" Height="31" Width="106" FontWeight="Bold" FontSize="16" FontFamily="Segoe UI"/>
+        <Label Name="lblUpdates" Content="Updates:" HorizontalAlignment="Left" Margin="10,393,0,0" VerticalAlignment="Top" Height="31" Width="106" FontWeight="Bold" FontSize="16" FontFamily="Segoe UI"/>
+        <CheckBox Name="rdbOverview" Content="Overview" HorizontalAlignment="Left" Margin="475,153,0,0" VerticalAlignment="Top" IsEnabled="False" FontFamily="Segoe UI" IsChecked="True"/>
+        <Label Name="lblDeviceControl" Content="DeviceControl:" Margin="7,302,673,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120" FontFamily="Segoe UI"/>
+        <Label Name="lblDeviceControl_Text" Content="N/A" HorizontalAlignment="Left" Margin="160,303,0,0" VerticalAlignment="Top" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Width="120" FontFamily="Segoe UI">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.446"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Name="LblSigOutOfDate" Content="Signature OutOfDate:" HorizontalAlignment="Left" Margin="10,471,0,0" VerticalAlignment="Top" Height="42" Width="152" FontWeight="Bold" FontFamily="Segoe UI"/>
+        <Label Name="LblSigOutOfDate_text" Content="N/A Signature Version" HorizontalAlignment="Left" Margin="163,471,0,0" VerticalAlignment="Top" FontStyle="Italic" FontFamily="Segoe UI"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="125" Margin="373,392,0,0" VerticalAlignment="Top" Width="302"/>
+        <Label Name="lblProxy" Content="Proxy URL:" Margin="369,529,311,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120" FontFamily="Segoe UI"/>
+        <Label Name="lblproxy_text" Content="No URL configured" HorizontalAlignment="Left" Margin="441,530,0,0" VerticalAlignment="Top" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Width="120" FontFamily="Segoe UI">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.446"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Name="lblProxyPac" Content="Proxy PAC:" Margin="369,555,311,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.406,-1.147" FontWeight="Bold" Width="120" FontFamily="Segoe UI"/>
+        <Label Name="lblProxyPac_Text" Content="No PAC configured" HorizontalAlignment="Left" Margin="441,554,0,0" VerticalAlignment="Top" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Width="120" FontFamily="Segoe UI">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.446"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
 
     </Grid>
 </Window>
-
 
 
 
@@ -280,12 +314,12 @@ $asrrules += [PSCustomObject]@{ # 15
     ## Reference - https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/attack-surface-reduction-rules?view=o365-worldwide#block-abuse-of-exploited-vulnerable-signed-drivers
 }
 $asrrules += [PSCustomObject]@{ # 16 
-    Name = "Block rebooting machine in Safe Mode (preview)";
+    Name = "Block rebooting machine in Safe Mode ";
     GUID = "33ddedf1-c6e0-47cb-833e-de6133960387"
     ## Reference - https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/attack-surface-reduction-rules-reference?view=o365-worldwide#block-rebooting-machine-in-safe-mode-preview
 }
 $asrrules += [PSCustomObject]@{ # 17 
-    Name = "Block use of copied or impersonated system tools (preview)";
+    Name = "Block use of copied or impersonated system tools ";
     GUID = "c0033c00-d16d-4114-a5a0-dc9b3a7d2ceb"
     ## Reference - https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/attack-surface-reduction-rules-reference?view=o365-worldwide#block-use-of-copied-or-impersonated-system-tools-preview
 }
@@ -294,6 +328,7 @@ $asrrules += [PSCustomObject]@{ # 18
     GUID = "a8f5898e-1dc8-49a9-9878-85004b8a61e6"
     ## Reference - https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/attack-surface-reduction-rules-reference?view=o365-worldwide#block-webshell-creation-for-servers
 }
+
 
         $enabledvalues = "Not Enabled", "Enabled", "Audit", "NA3", "NA4", "NA5", "Warning" ## $NA3-5 just added for the list to fit from 0-6
         
@@ -325,6 +360,7 @@ $asrrules += [PSCustomObject]@{ # 18
             "33ddedf1-c6e0-47cb-833e-de6133960387" {$index=16;break}
             "c0033c00-d16d-4114-a5a0-dc9b3a7d2ceb" {$index=17;break}
             "a8f5898e-1dc8-49a9-9878-85004b8a61e6" {$index=18;break}
+            "33ddedf1-c6e0-47cb-833e-de6133960387" {$index=19;break}
         }
                 $count = 0
                 $notfound = $true
@@ -575,17 +611,21 @@ $btnCheckForLastestUpdate.Add_Click({
     })
 
 $btnShowDefenderAVLogs.Add_Click({
-        $MainWindow1.Cursor = [System.Windows.Input.Cursors]::Wait
-        $MainWindow1.Cursor = [System.Windows.Input.Cursors]::Arrow
+        #$MainWindow1.Cursor = [System.Windows.Input.Cursors]::Wait
+        
 
         try {
 
-            Get-WinEvent -LogName "Microsoft-Windows-Windows Defender/Operational" | Out-GridView -Title "Defender AV logs"        
+            Get-WinEvent -LogName "Microsoft-Windows-Windows Defender/Operational" -MaxEvents 50 | Out-GridView -Title "Defender AV logs"        
 
         }
         catch { [System.Windows.MessageBox]::Show($Error[0], 'Confirm', 'OK', 'Error') }
 
-    })
+#    $MainWindow1.Cursor = [System.Windows.Input.Cursors]::Arrow
+    
+    } 
+    
+    )
 
 
 $btnShowPerformanceReport.Add_Click({
@@ -607,7 +647,12 @@ $btnExclusions.Add_Click({
             $Exclusions += $MPpreference.ExclusionExtension
             $Exclusions += $MPpreference.ExclusionIpAddress
             $Exclusions += $MPpreference.ExclusionProcess
+            if($Exclusions){
+
             $Exclusions | Out-GridView -Title "Exclusions"
+                        }Else{  [System.Windows.MessageBox]::Show("No Defender AV exclusions found !") 
+            }
+           
 
         $MainWindow1.Cursor = [System.Windows.Input.Cursors]::Arrow
 
@@ -626,33 +671,69 @@ Function PerformanceReport {
     try {
 
         $date = (get-date -f yyyy-MM-dd)
-        $PerformanceReport = Get-MpPerformanceReport -Path $WorkingPath\MDAV_Recording.etl -TopFiles:10 -TopExtensions:10 -TopProcesses:10 -TopScans:10
+        if(Test-Path  $WorkingPath\MDAV_Recording.etl){
+        $PerformanceReport = Get-MpPerformanceReport -Path $WorkingPath\MDAV_Recording.etl -TopFiles:10 -TopExtensions:10 -TopProcesses:10 -TopScans:10 -Overview
+        
+               
+        if($PerformanceReport){
 
+
+         If ($rdbOverview.IsChecked -eq $true) {
+
+            $TempFileReportOverview = $WorkingPath + "\TempFileReportOverview-" + $date + ".csv"
+            #$PerformanceReport.TopFiles | Out-GridView
+            $PerformanceReport.Overview | export-csv $TempFileReportOverview
+            if($PerformanceReport.Overview){  
+            import-csv $TempFileReportOverview | out-gridview -Title "Overview"
+            }Else{[System.Windows.MessageBox]::Show("No Overview found... please run again for a longer time!")}  
+            }
 
         If ($rdbTopfiles.IsChecked -eq $true) {
 
             $TempFileReportTopFiles = $WorkingPath + "\TempFileReportTopFiles-" + $date + ".csv"
             #$PerformanceReport.TopFiles | Out-GridView
             $PerformanceReport.TopFiles | export-csv $TempFileReportTopFiles
-            import-csv $TempFileReportTopFiles | out-gridview
+            if($PerformanceReport.TopFiles){  
+            import-csv $TempFileReportTopFiles | out-gridview -Title "Top Files Scans"
+            }Else{[System.Windows.MessageBox]::Show("No Top files found... please run again for a longer time!")}          
         }
         If ($rdbTopExtensions.IsChecked -eq $true ) {
             $TempFileReportTopExtensions = $WorkingPath + "\TempFileReportTopExtensions-" + $date + ".csv"
             $PerformanceReport.TopExtensions | export-csv $TempFileReportTopExtensions
-            import-csv $TempFileReportTopExtensions | out-gridview
+            
+
+
+              if($PerformanceReport.TopExtensions){  
+            import-csv $TempFileReportTopExtensions | out-gridview -Title "TopExtensions Scans"
+            }Else{[System.Windows.MessageBox]::Show("No Top Extensions found... please run again for a longer time!")}  
         }
         if ($rdbTopProcess.IsChecked -eq $true) {
             $TempReportFileTopProcesses = $WorkingPath + "\TempReportFileTopProcesses-" + $date + ".csv"
             $PerformanceReport.TopProcesses | export-csv $TempReportFileTopProcesses
-            import-csv $TempReportFileTopProcesses | out-gridview
+            
+
+
+              if($PerformanceReport.TopProcesses){  
+            import-csv $TempReportFileTopProcesses | out-gridview -Title "TopProcesses Scans"
+            }Else{[System.Windows.MessageBox]::Show("No Top Processes found... please run again for a longer time!")}  
         }
         if ($rdbTopScans.IsChecked -eq $true) {
             $TempReportFileTopScans = $WorkingPath + "\TempReportFileTopScans-" + $date + ".csv"
             $PerformanceReport.TopScans | export-csv $TempReportFileTopScans
-            import-csv $TempReportFileTopScans | out-gridview -Title "Top File Scans"
+          
+
+              if($PerformanceReport.TopScans){  
+              import-csv $TempReportFileTopScans | out-gridview -Title "Top Scans"
+            }Else{[System.Windows.MessageBox]::Show("No TopScans found... please run again for a longer time!")}  
+
         }
 
-    }
+        }Else{
+       [System.Windows.MessageBox]::Show("Performance report is empty... please run again for a longer time!")
+        
+        }
+
+    }   }
     catch { [System.Windows.MessageBox]::Show($Error[0], 'Confirm', 'OK', 'Error') }
 }
 
@@ -663,7 +744,8 @@ Function PerformanceAnalyze {
 
         $arg = "New-MpPerformanceRecording -RecordTo " + '"' + $WorkingPath + "\MDAV_Recording.etl" + '"'
 
-        Start-Process powershell.exe -ArgumentList "-Command", $arg
+        Start-Process powershell.exe -ArgumentList "-NoExit","-Command", $arg -Wait
+         
         $btnShowPerformanceReport.IsEnabled = $true
         $rdbTopfiles.IsEnabled = $true
         $rdbTopExtensions.IsEnabled = $true
@@ -732,7 +814,30 @@ Function WindowLoader {
         $lblQuarantine_text.content = $MPpreference.QuarantinePurgeItemsAfterDelay
         $lblPUAProtect_text.content = $MPpreference.DisableBlockAtFirstSeen
         $lblCloudTimeout_text.content = $MPpreference.CloudExtendedTimeout
-        $lblEnableFileHashComputation_Text.content = ReadHashComputation
+        $lblDeviceControl_Text.content = $MPComputerstatus.DeviceControlState
+
+        if($MPpreference.ProxyPacUrl){
+        $lblProxyPac_Text.content =$MPpreference.ProxyPacUrl
+        }Else{
+         $lblProxyPac_Text.content ="No Proxy PAC Configured"        
+        }
+
+          if($MPpreference.ProxyServer){
+          $lblproxy_text.content = $MPpreference.ProxyServer
+        }Else{
+         $lblProxyPac_Text.content ="No Proxy URL Configured"        
+        }
+
+
+
+      
+
+        if(ReadHashComputation){
+          $lblEnableFileHashComputation_Text.content = ReadHashComputation
+        } Else{          
+        $lblEnableFileHashComputation_Text.content = "Disabled"
+        }
+       
       
 
        
@@ -752,7 +857,7 @@ Function WindowLoader {
 
     if (test-path "HKLM:\\SOFTWARE\Microsoft\Windows Advanced Threat Protection\Status") {
 
-        $RegisteryOrgID = (get-itemproperty -path "HKLM:\\SOFTWARE\Microsoft\Windows Advanced Threat Protection\Status" -name "OrgId").OrgId
+        $RegisteryOrgID = (get-itemproperty -path "HKLM:\\SOFTWARE\Microsoft\Windows Advanced Threat Protection\Status" -name "OrgId" -ErrorAction SilentlyContinue).OrgId 
 
         $lblOrgID_txt.Content = $RegisteryOrgID
     }
@@ -760,3 +865,5 @@ Function WindowLoader {
 
 #Show Form
 $Form.ShowDialog() | out-null
+
+
