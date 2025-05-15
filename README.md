@@ -5,7 +5,7 @@ This tool is designed to assist you in analyzing issues related to Defender for 
 
 Please note that this is the initial version of the tool. If you encounter any bugs or have suggestions for enhancements, I encourage you to submit them on my GitHub page. Your feedback and reports are greatly appreciated.
 
-![image](https://github.com/user-attachments/assets/f7d58801-82b2-48d6-a506-b30caf872f0d)
+![image](https://github.com/user-attachments/assets/a327694e-2200-44ea-b2ae-ee2f077d0e34)
 
 
 
